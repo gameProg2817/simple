@@ -154,3 +154,51 @@ body {background-color: black;}
 		</div>
 	</div>
 </html>
+
+<script>
+
+
+	function Grid () {
+
+	this.IdAll = [];
+	this.IdNot = [];
+
+	this.IdClickFull = function() {
+		var tab = ["r","y","g","b"];
+		for(var i = 0; i < tab.length ; i++){
+			for(var j = 0 ; j <= 10 ; j++ ) {
+				this.IdAll.push(tab[i]+j);
+			}
+		}
+	}
+
+	this.setClick = function() {
+		this.IdClickFull();
+		for ( var i = 0 ; i < this.IdAll.length ; i++) {
+			this.addClickOne(this.IdAll[i]);
+		}
+	} 
+
+	this.addClickOne = function(identifiant) {
+		document.getElementById(identifiant).addEventListener("click", function() {
+			document.getElementById(identifiant).style.border = " 2px solid black ";
+			document.getElementById(identifiant).style.color = " black ";
+			document.getElementById(identifiant).style.backgroundColor = " #ff6347 ";
+		});
+	}
+
+
+	this.Print = function() {
+		return " le id all est la : " + this.IdAll +"\n" + "le not : " + this.IdNot.sort ;
+	}
+}
+
+function main () {
+	var aa = new Grid();
+	aa.setClick();
+	console.log(aa.Print());
+}
+main();
+
+
+</script>
