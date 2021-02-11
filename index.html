@@ -1,156 +1,184 @@
 <!DOCTYPE html>
-<head>
-	<title>Synthése</title>
-	
-	<style>	
-body {background-color: black;}
-#grid {
-	background-color: grey;
-	border-radius: 6px;
-	width: 60%;
-	text-align: center;
-	margin: auto;
-	border: 5px solid white;
-}
-#line1 , #line2 , #line3 , #line4 , #line5 , #line5 > #droite , #line6 , #ResultatDes {
-	display: flex;
-	justify-content: center;
-}
-#line1 > p , #line2 > p , #line3 > p, #line4 > p , #line5 > #penalites , #line5 > #droite > p , #line6 > p , #ResultatDes > p {
-	margin: 10px;
-	padding: 10px;
-	color: white;
-	border-radius: 6px;
-}
-#line1 > p , #line2 > p , #line3 > p, #line4 > p {
-	flex-grow: 0.83;
-}
-#line5 > #penalites , #line5 > #droite {
-	flex-grow: 0.50;
-}
-#line5 > #droite > p  {
-	flex-grow: 0.25;
-}
-#line6 > p {
-	flex-grow: 1.66;
-}
-#line1 > p {
-	background-color: rgba(255, 0, 0, 0.6);;
-	border: 2px solid red;
-}
-#line2 > p {
-	background-color: rgba(255,255,0,0.3);
-	border: 2px solid yellow;
-}
-#line3 > p {
-	background-color: rgba(0,255,0,0.3);
-	border: 2px solid green;
-}
-#line4 > p {
-	background-color: rgba(0,0,255,0.3);
-	border: 2px solid blue;
-}
-#line5 > #penalites {
-	background-color: white;
-	border: 2px solid black;
-	color: black;		
-}
-#line5 > #droite > p {
-	background-color: rgb(180, 180, 180);
-	border: 2px solid black;	
-}
-#line6 > p {
-	background-color: white;
-	border: 2px solid black;
-	color: red;
-}
-#ResultatDes > p {
- 	flex-grow: 1;
- 	background-color: #7FFFD4;
-	border: 2px solid red;
-	color: black;
- }
-	</style>
-</head>
-
 <html>
-	<div id="grid">
+	<head>
+		<title>Calculator</title>
+		<style>
+			body {
+				background-color: black;
+				font-size:22px;
+				font-family: 'Comic Sans MS', cursive;
+				font-style: italic;
+				font-weight: bold;
+			}
+			div {
+				display: flex;
+				margin: auto;
+				width: 50%;
+				text-align: center;
+				background-color: blue;
+				border-radius: 15px;
+				border:10px solid blue;
+			}
+			p {
+				flex-grow: 1.25;
+				background-color: #00FFFF;
+				margin: 0px;
+				padding: 16px;
+				border-radius: 15px;
+				border:3px solid black;
+			}
+			p:hover {
+				border:3px solid white;
+			}
+			#plus , #moins , #fois , #div , #res , #e , #c {
+				background-color:#FF69B4 ;
+			}
+			#display {
+				background-color: #00FFFF;
+				margin: 0px;
+				padding: 16px;
+				border-radius: 15px;
+			}
+			#display:hover {border:3px solid black;}
 
+		</style>
+	</head>
+
+	<body>
+
+		<div> <p id="display" style="text-align: right;" >0</p>
+		</div>
 		<div id="line1">
-			<p id="r0">2</p>
-			<p id="r1">3</p>
-			<p id="r2">4</p>
-			<p id="r3">5</p>
-			<p id="r4">6</p>
-			<p id="r5">7</p>
-			<p id="r6">8</p>
-			<p id="r7">9</p>
-			<p id="r8">10</p>
-			<p id="r9">11</p>
-			<p id="r10">12</p>
-			<p id="r11">X</p>
+			<p id="c1">1</p>
+			<p id="c2">2</p>
+			<p id="c3">3</p>
+			<p id="plus">+</p>
 		</div>
 		<div id="line2">
-			<p id="y0">2</p>
-			<p id="y1">3</p>
-			<p id="y2">4</p>
-			<p id="y3">5</p>
-			<p id="y4">6</p>
-			<p id="y5">7</p>
-			<p id="y6">8</p>
-			<p id="y7">9</p>
-			<p id="y8">10</p>
-			<p id="y9">11</p>
-			<p id="y10">12</p>
-			<p id="y11">X</p>
+			<p id="c4">4</p>
+			<p id="c5">5</p>
+			<p id="c6">6</p>
+			<p id="moins">-</p>
 		</div>
 		<div id="line3">
-			<p id="g0">12</p>
-			<p id="g1">11</p>
-			<p id="g2">10</p>
-			<p id="g3">9</p>
-			<p id="g4">8</p>
-			<p id="g5">7</p>
-			<p id="g6">6</p>
-			<p id="g7">5</p>
-			<p id="g8">4</p>
-			<p id="g9">3</p>
-			<p id="g10">2</p>
-			<p id="g11">X</p>
+		    <p id="c7">7</p>
+		    <p id="c8">8</p>
+		    <p id="c9">9</p>
+		    <p id="fois">*</p>
+		</div>
+		<div>
+			<p id="p">p</p>
+			<p id="c0">0</p>
+			<p id="point">.</p>
+			<p id="div">/</p>
 		</div>
 		<div id="line4">
-			<p id="b0">12</p>
-			<p id="b1">11</p>
-			<p id="b2">10</p>
-			<p id="b3">9</p>
-			<p id="b4">8</p>
-			<p id="b5">7</p>
-			<p id="b6">6</p>
-			<p id="b7">5</p>
-			<p id="b8">4</p>
-			<p id="b9">3</p>
-			<p id="b10">2</p>
-			<p id="b11">X</p>
+			<p id="egal">=</p>
+			<p id="e">e</p>
+			<p id="c">c</p>
 		</div>
-		<div id="line5">
-			<p id="penalites">Penalités</p>
-			<div id="droite">
-				<p id="p1" style="border: 3px solid red;">0</p>
-				<p id="p2" style="border: 3px solid yellow;">0</p>
-				<p id="p3"  style="border: 3px solid green;">0</p>
-				<p id="p4"  style="border: 3px solid blue;">0</p>
-			</div>
-		</div>
-		<div id="line6">
-			<p id="res0">0</p>
-			<p id="res1">0</p>
-			<p id="res2">0</p>
-			<p id="res3">0</p>
-			<p id="res4">0</p>
-			<p id="res5">0</p>
-		</div>
-		<div id="ResultatDes">
-			<p id="message">Vous avez jété le dès"</p>
-		</div>
-	</div>
+		
+	</body>
 </html>
+
+<script>
+	ecran = document.getElementById("display");
+
+	function returnNewEvent(a){
+		return a;
+	}
+
+	function numberID(i) {
+		this.i = i;
+		this.TabNum = ["c0","c1","c2","c3","c4","c5","c6","c7","c8","c9"];
+
+		this.addEV = function(i){
+			var newEvent = document.getElementById(this.TabNum[this.i]).addEventListener("click", function(){
+				if(ecran.innerHTML.length == 1 && ecran.innerHTML[0] == 0 ) {ecran.innerHTML = i;}
+				else {ecran.innerHTML += i;} 
+				ecran.style.backgroundColor = " #00FFFF ";
+			}); 
+			return newEvent;
+		}
+	}
+
+	function display_number() {
+		var i = 0;
+		while(i<10){
+			var a = new numberID(i);
+			var aa = a.addEV(i)
+			returnNewEvent(aa);
+			i++;
+		}
+	}
+	display_number();
+
+	operators = ["+","*","-","/" , "."];
+
+	document.getElementById("plus").addEventListener("click", plusEv);
+	function plusEv(){
+		var lastChar = ecran.innerHTML[ecran.innerHTML.length-1];
+		if(operators.includes(lastChar)){
+			ecran.style.backgroundColor = " red ";
+		}
+		else {ecran.innerHTML += "+";}
+	}
+	
+	document.getElementById("fois").addEventListener("click", foisEv);
+	function foisEv(){
+		var lastChar = ecran.innerHTML[ecran.innerHTML.length-1];
+		if(operators.includes(lastChar)){
+			ecran.style.backgroundColor = " red ";
+		}
+		else {ecran.innerHTML += "*";}
+	}
+
+	document.getElementById("moins").addEventListener("click", moinsEv);
+	function moinsEv(){
+		var lastChar = ecran.innerHTML[ecran.innerHTML.length-1];
+		if(operators.includes(lastChar)){
+			ecran.style.backgroundColor = " red ";
+		}
+		else {ecran.innerHTML += "-";}
+	}
+
+	document.getElementById("div").addEventListener("click", divEv);
+	function divEv(){
+		var lastChar = ecran.innerHTML[ecran.innerHTML.length-1];
+		if(operators.includes(lastChar)){
+			ecran.style.backgroundColor = " red ";
+		}
+		else {ecran.innerHTML += "/";}
+	}		
+
+	document.getElementById("point").addEventListener("click", pointEv);
+	function pointEv(){
+		var lastChar = ecran.innerHTML[ecran.innerHTML.length-1];
+		if(operators.includes(lastChar)){
+			ecran.style.backgroundColor = " red ";
+		}
+		else {ecran.innerHTML += ".";}
+	}
+	document.getElementById("p").addEventListener("click", PP);
+	function PP(){ ecran.innerHTML += 3.1415}
+
+
+	document.getElementById("c").addEventListener("click", function() {
+		ecran.innerHTML = 0;
+	});
+
+	document.getElementById("e").addEventListener("click", function() {
+		var toz = ecran.innerHTML;
+		ecran.innerHTML = "";
+		for (var zzz = 0; zzz < toz.length-1; zzz++) {
+			ecran.innerHTML += toz[zzz];
+		}
+
+	});
+
+	document.getElementById("egal").addEventListener("click", function() {
+		var str = ecran.innerHTML;
+		var resultat = eval(str);
+		ecran.innerHTML = resultat;
+	});
+</script>
